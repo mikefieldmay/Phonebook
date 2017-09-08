@@ -11,6 +11,8 @@ import 'rxjs/Rx';
 export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
   queryString = '';
+  searchBy = 'name';
+
 
   constructor(private _dataService: DataService) { }
 
@@ -22,6 +24,10 @@ export class ContactListComponent implements OnInit {
           console.log('Contact list contacts', this.contacts);
         }
       );
+  }
+
+  changeSearchBy(prop: string) {
+    this.searchBy = prop;
   }
 
 }

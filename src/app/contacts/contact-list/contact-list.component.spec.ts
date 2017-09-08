@@ -4,6 +4,8 @@ import { ContactListComponent } from './contact-list.component';
 import { Observable } from 'rxjs/Rx';
 import { Contact } from '../contact.model';
 import { DataService } from '../data.service';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from '../../common/filter.pipe';
 
 const contact = new Contact(
   'Oleta Level',
@@ -23,7 +25,8 @@ describe('ContactListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactListComponent ],
+      declarations: [ ContactListComponent, FilterPipe ],
+      imports: [FormsModule],
       providers: [ { provide: DataService, useClass: DataServiceStub } ]
     })
     .compileComponents();
@@ -39,8 +42,16 @@ describe('ContactListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should hold an array of comics', () => {
+  it('should hold an array of contacts', () => {
     expect(component.contacts).toEqual([contact]);
+  });
+
+  it('should have a default searchBy value', () => {
+    expect(component.searchBy).toEqual('name');
+  });
+
+  it('should have a default queryString value', () => {
+    expect(component.queryString).toEqual('');
   });
 
   it('should display phonebook information', () => {
