@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DataService } from './contacts/data.service';
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
