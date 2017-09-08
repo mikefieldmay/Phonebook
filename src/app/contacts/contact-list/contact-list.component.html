@@ -9,11 +9,18 @@
       </ul>
       <input type="text" [(ngModel)]="queryString" id="search" placeholder="{{searchBy}}...">
   </div>
+  <div class="col-md-6">
+    <h4>Sort by: </h4>
+      <form>
+          <input type="radio" name="gender" value="aToZ" [(ngModel)]="sortBy" checked> A to Z<br>
+          <input type="radio" name="gender" value="zToA" [(ngModel)]="sortBy"> Z to A<br>
+        </form>
+  </div>
 </div>
 
 <div class="row">
-  <ul>
-    <li class="contact-info" *ngFor="let contact of contacts | filter:queryString:searchBy">
+  <ul class="list-group">
+    <li class="contact-info list-group-item" *ngFor="let contact of contacts | filter:queryString:searchBy | sort:sortBy">
       <h4>{{contact.name}}</h4>
       <p>{{contact.phone_number}}</p>
       <p>{{contact.address}}</p>

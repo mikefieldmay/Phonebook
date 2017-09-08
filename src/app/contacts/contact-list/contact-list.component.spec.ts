@@ -6,6 +6,7 @@ import { Contact } from '../contact.model';
 import { DataService } from '../data.service';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '../../common/filter.pipe';
+import { SortPipe } from '../../common/sort.pipe';
 
 const contact = new Contact(
   'Oleta Level',
@@ -25,7 +26,7 @@ describe('ContactListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactListComponent, FilterPipe ],
+      declarations: [ ContactListComponent, FilterPipe, SortPipe ],
       imports: [FormsModule],
       providers: [ { provide: DataService, useClass: DataServiceStub } ]
     })

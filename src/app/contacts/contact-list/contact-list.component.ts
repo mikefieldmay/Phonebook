@@ -12,6 +12,7 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
   queryString = '';
   searchBy = 'name';
+  sortBy = 'aToZ';
 
 
   constructor(private _dataService: DataService) { }
